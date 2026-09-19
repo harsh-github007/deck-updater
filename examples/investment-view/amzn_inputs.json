@@ -1,0 +1,26 @@
+{
+  "_comment": "Amazon FY2021-FY2025, as reported. Source: stockanalysis.com, accessed 2026-09-18. Figures in $mm except EPS and price. Row numbers follow the v2 model layout.",
+
+  "B6":  "AMZN",
+  "B7":  "Amazon.com, Inc.",
+  "B8":  "USD",
+  "B9":  "E-commerce, cloud infrastructure and advertising",
+  "B10": 251.19,
+  "B11": 10790,
+  "B12": "AWS switching costs, Prime membership, fulfilment network scale",
+  "B13": "FY2021-FY2025 as reported. Free cash flow left unadjusted so the model's own cash-base check can be seen working.",
+  "B14": 20.20,
+
+  "B19": [469822, 513983, 574785, 637959, 716924],
+  "B20": [3.24, -0.27, 2.90, 5.53, 7.17],
+  "B21": [33364, -2722, 30425, 59248, 77670],
+  "B22": [-14726, -16893, 32217, 32878, 7695],
+  "B23": [34433, 41921, 48663, 52795, 65756],
+  "B24": [61053, 63645, 52729, 82999, 131819],
+  "B25": [34433, 41921, 48663, 52795, 65756],
+  "B26": [139757, 169938, 161574, 155401, 178547],
+  "B27": [96049, 70026, 86780, 101202, 123029],
+  "B28": [138245, 146043, 201875, 285970, 411065],
+  "B29": [0, 0, 0, 0, 0],
+  "B30": [46327, 46752, 84946, 115877, 139514]
+}

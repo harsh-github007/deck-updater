@@ -1,0 +1,24 @@
+{
+  "_comment": "Illustrative newly-listed company with one reported year and losses. Kept as the worked example of what the model does when it cannot support a call: the cash base is negative, which is a blocking flag, so the decision comes back REVIEW rather than a confident SELL.",
+
+  "B6":  "SPCX",
+  "B7":  "Space Exploration Technologies Corp.",
+  "B8":  "USD",
+  "B9":  "Aerospace / satellite communications",
+  "B10": 154.81,
+  "B11": 13000,
+  "B12": "Reusable launch cost advantage; Starlink subscriber network",
+  "B13": "Only the current fiscal year is reported. Prior years are deliberately left blank, the model should refuse to rate this, not guess.",
+
+  "F19": 18700,
+  "F20": -0.38,
+  "F21": -4940,
+  "F23": 2100,
+  "F24": 5400,
+  "F25": 2100,
+  "F26": 9200,
+  "F27": 3100,
+  "F28": 14800,
+  "F29": 0,
+  "F30": 1450
+}

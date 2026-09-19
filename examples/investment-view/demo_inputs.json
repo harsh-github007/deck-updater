@@ -1,0 +1,25 @@
+{
+  "_comment": "Northwind Traders, illustrative figures for demonstrating the tool. Not a real company.",
+
+  "B6":  "NWTR",
+  "B7":  "Northwind Traders",
+  "B8":  "USD",
+  "B9":  "Industrial distribution",
+  "B10": 62.40,
+  "B11": 420,
+  "B12": "Dense branch network and customer switching costs",
+  "B13": "Illustrative figures for a tool demonstration",
+
+  "B19": [3100, 3480, 3910, 4380, 4910],
+  "B20": [2.05, 2.36, 2.72, 3.14, 3.61],
+  "B21": [861, 991, 1142, 1319, 1516],
+  "B22": [740, 852, 981, 1130, 1301],
+  "B23": [124, 139, 156, 175, 196],
+  "B24": [155, 174, 196, 219, 246],
+  "B25": [124, 139, 156, 175, 196],
+  "B26": [980, 940, 900, 860, 820],
+  "B27": [310, 380, 455, 540, 640],
+  "B28": [3200, 3610, 4080, 4600, 5190],
+  "B29": [0.55, 0.62, 0.70, 0.80, 0.92],
+  "B30": [895, 1026, 1177, 1349, 1547]
+}
