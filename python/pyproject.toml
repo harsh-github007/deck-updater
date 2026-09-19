@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slidesync"
+version = "0.1.0"
+description = "Refresh PowerPoint decks from Excel data using tokens and shape directives"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = [
+    "python-pptx>=1.0",
+    "openpyxl>=3.1",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+slidesync = "slidesync.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["slidesync*"]
