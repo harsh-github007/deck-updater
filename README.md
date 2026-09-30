@@ -4,6 +4,8 @@ Refresh PowerPoint decks from Excel data. Mark up a template once with
 `{{Sheet!A1}}` tokens and `table:` / `picture:` / `chart:` shape names; every
 report cycle after that is one command, or one button.
 
+**Live app:** https://deck-updater.vercel.app
+
 ![The browser edition after a run](docs/screenshot.png)
 
 Three independent implementations follow the same
