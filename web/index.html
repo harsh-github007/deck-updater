@@ -407,6 +407,7 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
 .msg{font-size:13px;color:var(--muted)} .msg.err{color:var(--err)} .msg.skip{color:var(--skip)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<link rel="stylesheet" href="studio.css">
 </head>
 <body>
 <main>
@@ -417,8 +418,22 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
     </div>
   </header>
 
-  <h1>Stop rebuilding the same deck every <span class="cyc h"><b class="fb">month</b><b>day</b><b>month</b><b>quarter</b><b>year</b></span></h1>
-  <p class="lede">Mark your recurring deck once with the cells its figures come from. After that, a new period is one workbook, a few seconds, and a record of every value that moved.</p>
+  <nav class="studio-nav" aria-label="App sections"><button type="button" id="workspaceTab" aria-controls="workspacePanel" aria-pressed="true">Workspace</button><button type="button" id="learnTab" aria-controls="learningPanel" aria-pressed="false">How it works & examples</button></nav>
+  <section id="studioWelcome" class="studio-welcome" aria-labelledby="welcomeTitle">
+    <span class="studio-eyebrow">FROM WORKBOOK TO PRESENTATION</span>
+    <h1 id="welcomeTitle">Fresh numbers.<br>A deck that keeps up.</h1>
+    <p>See your Excel values find their place in PowerPoint. Then review every update before you send.</p>
+    <div class="welcome-actions"><button class="sample" id="welcomeSample">Try the sample →</button><button class="ghost" id="welcomeStart">Start with your files</button></div>
+    <p class="welcome-note">Already have a workbook and marked-up deck? Start directly. Everything stays in your browser.</p>
+    <div class="transfer-demo is-previewing" id="transferDemo" aria-hidden="true">
+      <div class="demo-sheet"><span class="demo-label">EXCEL · SUMMARY</span><div class="demo-row"><span>Revenue</span><b>$128,400</b></div><div class="demo-row"><span>Growth</span><b>18.6%</b></div><div class="demo-row"><span>Margin</span><b>32.4%</b></div></div>
+      <div class="demo-bridge"><span class="transfer-number">128,400 →</span><span class="transfer-number">18.6% →</span><span class="transfer-number">32.4% →</span></div>
+      <div class="demo-deck"><span class="demo-label">POWERPOINT · MONTHLY REVIEW</span><h2>Business performance</h2><div class="demo-metrics"><div><span>Revenue</span><b><i>$112,000</i><strong>$128,400</strong></b></div><div><span>Growth</span><b><i>12.0%</i><strong>18.6%</strong></b></div><div><span>Margin</span><b><i>29.1%</i><strong>32.4%</strong></b></div></div><span class="demo-caption">Illustration of how values transfer</span></div>
+    </div>
+    <p id="welcomeStatus" role="status" class="welcome-status"></p>
+  </section>
+  <div id="workspacePanel" class="studio-workspace"><aside class="studio-inputs"><span class="studio-eyebrow">YOUR FILES</span><h2>Use your own files</h2>
+  <p class="studio-input-description">Add your workbook and marked-up deck. Updates run automatically when both are ready.</p>
   <div class="trybar">
     <button class="sample" id="btnSample">Try the sample</button>
     <span class="or">Nothing leaves your browser.</span>
@@ -446,6 +461,9 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
   </div>
   
 
+  <button type="button" class="studio-learn" id="sidebarLearn">Learn to prepare a template →</button><p class="studio-private">Your files stay in this browser.<br>Your original template is never changed.</p></aside>
+  <div class="studio-review"><div class="studio-review-heading"><span class="studio-eyebrow">REVIEW BEFORE YOU SEND</span><h1>Your numbers, in place.</h1><p>Preview the result, inspect changes, then download.</p></div>
+  <div id="studioEmpty" class="studio-empty"><span class="studio-empty-symbol" aria-hidden="true">↗</span><h2>A fresh deck starts here.</h2><p>Add your files above, or explore the sales sample to see each value land.</p><button type="button" id="emptySample" class="sample">Explore the sales sample</button></div>
   <section id="result" class="hidden">
     <div class="summary">
       <div class="stat ok"><b id="nOk">0</b>updated</div>
@@ -474,12 +492,23 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
       <h3>Changes</h3>
       <div class="status" id="pStatus"></div>
       <div id="pIssues"></div>
-      <ul class="chg" id="pList"></ul>
+      <details class="change-log"><summary>View change log <span class="expand-label">Expand</span></summary><ul class="chg" id="pList"></ul></details>
     </section>
     <details class="log" id="logBox"><summary>Full log</summary><div class="wrap"><table id="logTable"></table></div></details>
   </section>
 
-  <section class="guide">
+  </div></div>
+  <section class="guide" id="learningPanel" hidden>
+<div class="studio-examples"><article class="studio-example"><span class="studio-eyebrow">START HERE</span><h3>A recurring sales review</h3><p>Use the built-in workbook and template to watch text, tables, charts, and pictures update. The basic GitHub example includes generators for the workbook, deck, and configuration.</p><button class="sample" id="guideSample" type="button">Try the sales sample</button><br><a href="https://github.com/harsh-github007/deck-updater/tree/main/examples/basic" target="_blank" rel="noopener">Basic example files ↗</a></article><article class="studio-example"><span class="studio-eyebrow">WORKED EXAMPLE</span><h3>One model. Six slides.</h3><p>Follow 42 values from a valuation workbook into a client deck, including assumptions, tables, charts, and eleven data-quality checks.</p><a href="https://github.com/harsh-github007/deck-updater/blob/main/examples/investment-view/README.md" target="_blank" rel="noopener">Full walkthrough ↗</a><br><a href="examples/investment-view/Lynch_Buffett_Stock_Evaluation.xlsx" download>Download workbook</a><a href="examples/investment-view/Investment_View_Template.pptx" download>Download template</a></article></div><div class="full-guide">
+<div class="examples-title"><h2>How it works, in detail</h2><span>Browser edition</span></div>
+<details open><summary>1. Prepare Excel and make a reusable PowerPoint template</summary><div class="guide-body"><p>Keep the figures you report in a consistent workbook structure. For this sales example, the sheet is named <b>Summary</b>: B1 contains the reporting date, B2 the revenue, B3 the growth rate, and B4 the top region.</p><p>Make a copy of your existing PowerPoint deck. In that copy, replace each changing figure with a token that points to the corresponding cell. You only do this setup once; keep this marked-up copy as your template.</p><div class="token-example"><span>Inside your template</span><code>Revenue reached {{Summary!B2|$#,##0}}<br>Growth: {{Summary!B3|0.0%}}<br>Reporting period: {{Summary!B1|date:mmm yyyy}}</code><span>After refreshing with September data</span><b>Revenue reached $1,347,905<br>Growth: 4.9%<br>Reporting period: Sep 2026</b></div><p>The part before <code>|</code> identifies the cell. The part after it formats the result. You can also reference an Excel named range, such as <code>{{TotalRevenue}}</code>. Tokens split across text formatting runs still resolve; the replacement inherits the first character's formatting.</p></div></details>
+<details><summary>2. Connect tables, charts, and pictures</summary><div class="guide-body"><p>For these objects, use a <b>shape name</b> instead of typing a token. Open PowerPoint → Home → Select → Selection Pane, select the object, and rename it with the directive below.</p><dl><dt><code>table:Regions!A1:D5</code></dt><dd>Use an existing PowerPoint table. The range fills the table and resizes its rows and columns while inheriting the template's cell styling.</dd><dt><code>chart:Regions!A1:D5</code></dt><dd>Use an existing chart. The first column supplies categories and the header row supplies series names. Add <code>;orient=rows</code> to switch orientation. The displayed chart cache updates; the embedded worksheet behind PowerPoint's “Edit Data” keeps its original values.</dd><dt><code>picture:Regions!A1:D5</code></dt><dd>Use an existing picture as the placeholder. The browser renders the range as a neutral table image and replaces the picture in the same position, size, and layer order. The Excel add-in edition provides a pixel-perfect Excel picture.</dd></dl></div></details>
+<details><summary>3. Load files and refresh the deck</summary><div class="guide-body"><ol><li>Save your workbook in Excel after changing formulas. The browser reads saved, cached results; it does not recalculate formulas.</li><li>Add the workbook to the source area. Add one or more marked-up <code>.pptx</code> files to the template area.</li><li>Optionally add an approved log CSV from a previous run to compare against that baseline.</li><li>Refresh. Tokens, tables, charts, and pictures resolve against their named sheets or ranges. Your original template remains unchanged.</li></ol><p>For batch output names, your workbook can include a <b>Decks</b> sheet with Template, Output, and Skip columns. Tokens on a slide layout or master resolve once and appear on slides that inherit them.</p></div></details>
+<details><summary>4. Understand the preview, change log, and feedback</summary><div class="guide-body"><p>The slide preview shows how the figures land in the template's shape geometry. Each action is logged with its source reference so you can trace what changed.</p><dl><dt>Read-back verification</dt><dd>The generated PowerPoint file is reopened from its own bytes. Text values, table dimensions, chart series and point counts, picture replacements, and unresolved references are checked against the log.</dd><dt>Baseline comparison</dt><dd>With an approved log, moved values are tagged <b>CHANGED</b>. A reference that stopped resolving or a renamed shape can produce <b>MISSING</b> or <b>MISMATCH</b> findings. Download findings as <code>deck-updater-qc.csv</code>.</dd><dt>Unresolved references</dt><dd>They stay visible in red in the preview and remain unresolved in the deck. An error does not abort the entire run; a deck can still be saved with issues. Review the findings before sending it.</dd></dl></div></details>
+<details><summary>5. Download and reuse next period</summary><div class="guide-body"><p>Download the updated PowerPoint deck after checking the results. Keep the original template for the next reporting period; swap in the next workbook and repeat.</p><p>PDF export is a read-only circulation copy. It uses the preview, which simplifies template fonts, theme colors, and effects. Updated charts appear as signed bar charts regardless of their original chart type; charts without directives appear as labeled outlines. For exact styling, open the finished deck in PowerPoint.</p></div></details>
+<details><summary>Worked example: trace the investment-view deck</summary><div class="guide-body"><p>Your GitHub example pairs <code>Lynch_Buffett_Stock_Evaluation.xlsx</code> with <code>Investment_View_Template.pptx</code>. Forty-two values feed six slides:</p><ol><li>Recommendation, price, fair value, upside, and buy-below price.</li><li>A decision summary table and a valuation-bridge chart.</li><li>A chart of six score modules.</li><li>Forecast rows and a five-year revenue chart.</li><li>Eleven data-quality checks with details.</li><li>Assumptions against history and the metrics behind the score.</li></ol><p>For example, <code>{{03_Output_Decision!B12}}</code> reads the recommendation, and <code>table:03_Output_Decision!A5:B15;header=0</code> fills the decision table. The model's blocking flags force <b>REVIEW</b> and withhold unsupported fair-value outputs. These checks come from the workbook; Deck Updater transfers their results.</p><p><a href="https://github.com/harsh-github007/deck-updater/tree/main/examples/investment-view" target="_blank" rel="noopener">Open the workbook, template, inputs, and full walkthrough ↗</a></p></div></details>
+</div>
+
     <h2>How it works</h2>
     <p class="sub lead">The idea is to stop rebuilding the same deck. Mark up the one you already remake every month, once. After that it is a template, and a new period costs you a workbook and a few seconds.</p>
 
@@ -1704,5 +1733,6 @@ async function downloadAll(){
 window.__du={setRenderer:f=>{renderPicture=f},setImageLoader:f=>{loadImage=f},drawSlide};
 })();
 </script>
+<script src="studio.js"></script>
 </body>
 </html>
