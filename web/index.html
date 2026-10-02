@@ -6,7 +6,7 @@
 <title>Deck Updater: refresh a PowerPoint deck from Excel</title>
 <meta name="description" content="Mark a recurring deck once with the cells its figures come from, then refresh it from a workbook in seconds, with a per-value log and a read-back check. Runs entirely in the browser.">
 <meta name="theme-color" content="#0b0c0e">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c0e'/%3E%3Crect x='12' y='14' width='18' height='36' rx='3' fill='%23ff4400'/%3E%3Crect x='34' y='14' width='18' height='36' rx='3' fill='%2333393f'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c0e'/%3E%3Crect x='12' y='14' width='18' height='36' rx='3' fill='%23005ac8'/%3E%3Crect x='34' y='14' width='18' height='36' rx='3' fill='%2333393f'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Deck Updater: refresh a PowerPoint deck from Excel">
 <meta property="og:description" content="Mark a recurring deck once. Refresh it from a workbook in seconds, with a per-value log and a read-back check. No upload, no server.">
@@ -416,26 +416,28 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
 <main>
   <header>
     <div class="wordmark"><span class="sq"><i></i><i></i></span>Deck Updater</div>
-    <div class="flow"><span class="pill x">Excel</span>→<span class="pill p">PowerPoint</span>
+  <nav class="studio-nav" aria-label="App sections"><button type="button" id="overviewTab" aria-controls="studioWelcome" aria-pressed="true">Overview</button><button type="button" id="workspaceTab" aria-controls="workspacePanel" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 9v11"/></svg>Workspace</button><button type="button" id="learnTab" aria-controls="learningPanel" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v15M3 4l9 2 9-2v15l-9 2-9-2z"/></svg>Guide & examples</button></nav>
+    <div class="flow">
       <button class="themebtn" id="btnTheme" type="button">Auto</button>
     </div>
   </header>
 
-  <nav class="studio-nav" aria-label="App sections"><button type="button" id="workspaceTab" aria-controls="workspacePanel" aria-pressed="true">Workspace</button><button type="button" id="learnTab" aria-controls="learningPanel" aria-pressed="false">How it works & examples</button></nav>
+
   <section id="studioWelcome" class="studio-welcome" aria-labelledby="welcomeTitle">
-    <span class="studio-eyebrow">FROM WORKBOOK TO PRESENTATION</span>
-    <h1 id="welcomeTitle">Update PowerPoint numbers<br>from an Excel workbook.</h1>
-    <p>See your Excel values find their place in PowerPoint. Then review every update before you send.</p>
-    <div class="welcome-actions"><button class="sample" id="welcomeSample">Try the sample →</button><button class="ghost" id="welcomeStart">Start with your files</button></div>
-    <p class="welcome-note">Already have a workbook and marked-up deck? Start directly. Everything stays in your browser.</p>
-    <div class="transfer-demo is-previewing" id="transferDemo" aria-hidden="true">
-      <div class="demo-sheet"><span class="demo-label">EXCEL · SUMMARY</span><div class="demo-row"><span>Revenue</span><b>$128,400</b></div><div class="demo-row"><span>Growth</span><b>18.6%</b></div><div class="demo-row"><span>Margin</span><b>32.4%</b></div></div>
-      <div class="demo-bridge"><span class="transfer-number">128,400 →</span><span class="transfer-number">18.6% →</span><span class="transfer-number">32.4% →</span></div>
-      <div class="demo-deck"><span class="demo-label">POWERPOINT · MONTHLY REVIEW</span><h2>Business performance</h2><div class="demo-metrics"><div><span>Revenue</span><b><i>$112,000</i><strong>$128,400</strong></b></div><div><span>Growth</span><b><i>12.0%</i><strong>18.6%</strong></b></div><div><span>Margin</span><b><i>29.1%</i><strong>32.4%</strong></b></div></div><span class="demo-caption">Illustration of how values transfer</span></div>
+    <div class="welcome-copy">
+    <h1 id="welcomeTitle">Refresh your PowerPoint<br>from Excel.</h1>
+    <p>Connect a workbook to your presentation template. Update the figures, review each change, and download a fresh deck.</p>
+    <div class="welcome-actions"><button class="sample" id="welcomeSample">Open the working sample</button><button class="ghost" id="welcomeStart">Use my own files</button></div>
+    <p class="welcome-note">No uploads. No account. Your original files stay intact.</p>
+    </div><div class="welcome-visual"><div class="transfer-demo" id="transferDemo" aria-hidden="true">
+      <div class="demo-sheet"><div class="artifact-title"><span>monthly-sales.xlsx</span><span class="artifact-type">Workbook</span></div><div class="demo-row"><span>Revenue</span><b>$128,400</b></div><div class="demo-row"><span>Growth</span><b>18.6%</b></div><div class="demo-row"><span>Margin</span><b>32.4%</b></div></div>
+      <div class="demo-bridge"><svg viewBox="0 0 160 60"><path d="M12 12h60q16 0 16 16v8q0 12 12 12h44"/><path d="m136 40 8 8-8 8"/></svg><span>Workbook values → slide placeholders</span></div>
+      <div class="demo-deck"><div class="artifact-title"><span>monthly-review.pptx</span><span class="artifact-type">Presentation</span></div><h2>Business performance</h2><div class="demo-metrics"><div><span>Revenue</span><b><i>$112,000</i><strong>$128,400</strong></b></div><div><span>Growth</span><b><i>12.0%</i><strong>18.6%</strong></b></div><div><span>Margin</span><b><i>29.1%</i><strong>32.4%</strong></b></div></div><div class="demo-caption"><span>Template preview</span><span class="updated-stamp">Values transferred</span></div></div>
     </div>
-    <p id="welcomeStatus" role="status" class="welcome-status"></p>
+    <div class="preview-controls"><button type="button" id="togglePreview" aria-pressed="false">Preview value transfer</button><span>Illustration · try the sample for a real result</span></div></div><p id="welcomeStatus" role="status" class="welcome-status"></p>
+    <div class="landing-method"><h2>One template.<br>Every reporting cycle.</h2><ol><li><b>Connect your numbers</b><p>Mark up the template once with references like <code>{{Summary!B2}}</code>.</p></li><li><b>Review the changes</b><p>Inspect updated text, tables, charts, and pictures. Unresolved references stay visible.</p></li><li><b>Download your deck</b><p>Save the updated PowerPoint, a PDF preview, and the change log.</p></li></ol></div>
   </section>
-  <div id="workspacePanel" class="studio-workspace"><aside class="studio-inputs"><span class="studio-eyebrow">YOUR FILES</span><h2>Use your own files</h2>
+  <div id="workspacePanel" class="studio-workspace"><aside class="studio-inputs"><h2>Use your own files</h2>
   <p class="studio-input-description">Add your workbook and marked-up deck. Updates run automatically when both are ready.</p>
   <div class="trybar">
     <button class="sample" id="btnSample">Try the sample</button>
@@ -465,7 +467,7 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
   
 
   <button type="button" class="studio-learn" id="sidebarLearn">Learn to prepare a template →</button><p class="studio-private">Your files stay in this browser.<br>Your original template is never changed.</p></aside>
-  <div class="studio-review"><div class="studio-review-heading"><span class="studio-eyebrow">REVIEW BEFORE YOU SEND</span><h1>Your numbers, in place.</h1><p>Preview the result, inspect changes, then download.</p></div>
+  <div class="studio-review"><div class="studio-review-heading"><h1 tabindex="-1" id="reviewTitle">Your numbers, in place.</h1><p>Preview the result, inspect changes, then download.</p></div>
   <div id="studioEmpty" class="studio-empty"><span class="studio-empty-symbol" aria-hidden="true">↗</span><h2>A fresh deck starts here.</h2><p>Add your files above, or explore the sales sample to see each value land.</p><button type="button" id="emptySample" class="sample">Explore the sales sample</button></div>
   <section id="result" class="hidden">
     <div class="summary">
@@ -502,7 +504,7 @@ mark.err{background:none;color:var(--err);text-decoration:underline dotted}
 
   </div></div>
   <section class="guide" id="learningPanel" hidden>
-<div class="studio-examples"><article class="studio-example"><span class="studio-eyebrow">START HERE</span><h3>A recurring sales review</h3><p>Use the built-in workbook and template to watch text, tables, charts, and pictures update. The basic GitHub example includes generators for the workbook, deck, and configuration.</p><button class="sample" id="guideSample" type="button">Try the sales sample</button><br><a href="https://github.com/harsh-github007/deck-updater/tree/main/examples/basic" target="_blank" rel="noopener">Basic example files ↗</a></article><article class="studio-example"><span class="studio-eyebrow">WORKED EXAMPLE</span><h3>One model. Six slides.</h3><p>Follow 42 values from a valuation workbook into a client deck, including assumptions, tables, charts, and eleven data-quality checks.</p><a href="https://github.com/harsh-github007/deck-updater/blob/main/examples/investment-view/README.md" target="_blank" rel="noopener">Full walkthrough ↗</a><br><a href="examples/investment-view/Lynch_Buffett_Stock_Evaluation.xlsx" download>Download workbook</a><a href="examples/investment-view/Investment_View_Template.pptx" download>Download template</a></article></div><div class="full-guide">
+<div class="studio-examples"><article class="studio-example"><h3>A recurring sales review</h3><p>Use the built-in workbook and template to watch text, tables, charts, and pictures update. The basic GitHub example includes generators for the workbook, deck, and configuration.</p><button class="sample" id="guideSample" type="button">Try the sales sample</button><br><a href="https://github.com/harsh-github007/deck-updater/tree/main/examples/basic" target="_blank" rel="noopener">Basic example files ↗</a></article><article class="studio-example"><h3>One model. Six slides.</h3><p>Follow 42 values from a valuation workbook into a client deck, including assumptions, tables, charts, and eleven data-quality checks.</p><a href="https://github.com/harsh-github007/deck-updater/blob/main/examples/investment-view/README.md" target="_blank" rel="noopener">Full walkthrough ↗</a><br><a href="examples/investment-view/Lynch_Buffett_Stock_Evaluation.xlsx" download>Download workbook</a><a href="examples/investment-view/Investment_View_Template.pptx" download>Download template</a></article></div><div class="full-guide">
 <div class="examples-title"><h2>How it works, in detail</h2><span>Browser edition</span></div>
 <details open><summary>1. Prepare Excel and make a reusable PowerPoint template</summary><div class="guide-body"><p>Keep the figures you report in a consistent workbook structure. For this sales example, the sheet is named <b>Summary</b>: B1 contains the reporting date, B2 the revenue, B3 the growth rate, and B4 the top region.</p><p>Make a copy of your existing PowerPoint deck. In that copy, replace each changing figure with a token that points to the corresponding cell. You only do this setup once; keep this marked-up copy as your template.</p><div class="token-example"><span>Inside your template</span><code>Revenue reached {{Summary!B2|$#,##0}}<br>Growth: {{Summary!B3|0.0%}}<br>Reporting period: {{Summary!B1|date:mmm yyyy}}</code><span>After refreshing with September data</span><b>Revenue reached $1,347,905<br>Growth: 4.9%<br>Reporting period: Sep 2026</b></div><p>The part before <code>|</code> identifies the cell. The part after it formats the result. You can also reference an Excel named range, such as <code>{{TotalRevenue}}</code>. Tokens split across text formatting runs still resolve; the replacement inherits the first character's formatting.</p></div></details>
 <details><summary>2. Connect tables, charts, and pictures</summary><div class="guide-body"><p>For these objects, use a <b>shape name</b> instead of typing a token. Open PowerPoint → Home → Select → Selection Pane, select the object, and rename it with the directive below.</p><dl><dt><code>table:Regions!A1:D5</code></dt><dd>Use an existing PowerPoint table. The range fills the table and resizes its rows and columns while inheriting the template's cell styling.</dd><dt><code>chart:Regions!A1:D5</code></dt><dd>Use an existing chart. The first column supplies categories and the header row supplies series names. Add <code>;orient=rows</code> to switch orientation. The displayed chart cache updates; the embedded worksheet behind PowerPoint's “Edit Data” keeps its original values.</dd><dt><code>picture:Regions!A1:D5</code></dt><dd>Use an existing picture as the placeholder. The browser renders the range as a neutral table image and replaces the picture in the same position, size, and layer order. The Excel add-in edition provides a pixel-perfect Excel picture.</dd></dl></div></details>
@@ -710,6 +712,7 @@ function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",
 function b64ToBytes(b64){ const bin=atob(b64.trim()); const out=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) out[i]=bin.charCodeAt(i); return out; }
 async function loadSample(){
   const btn=$("btnSample"); btn.disabled=true; btn.textContent="Loading sample…";
+  let sampleError="";
   try{
     const xb=b64ToBytes(document.getElementById("sampleXlsx").textContent);
     const pb=b64ToBytes(document.getElementById("samplePptx").textContent);
@@ -718,9 +721,10 @@ async function loadSample(){
     decks=[{file:{name:"monthly-review.pptx", arrayBuffer:async()=>buf}, name:"monthly-review.pptx"}];
     renderBooks(); renderDecks();
     await run();
-    document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"});
-  }catch(e){ $("note").textContent="Could not load the sample: "+e.message; }
+    if(!document.getElementById("result").closest("[hidden]")) document.getElementById("result").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  }catch(e){ sampleError="Could not load the sample: "+e.message; $("note").textContent=sampleError; }
   btn.disabled=false; btn.textContent="Reload sample files";
+  document.dispatchEvent(new CustomEvent("deck-sample-complete",{detail:{success:!sampleError&&!$("result").classList.contains("hidden"),error:sampleError}}));
 }
 $("btnSample").addEventListener("click",loadSample);
 
@@ -1736,6 +1740,7 @@ async function downloadAll(){
 window.__du={setRenderer:f=>{renderPicture=f},setImageLoader:f=>{loadImage=f},drawSlide};
 })();
 </script>
+<script src="vendor/motion-14.0.0.min.js"></script>
 <script src="studio.js"></script>
 </body>
 </html>

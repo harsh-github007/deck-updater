@@ -80,3 +80,23 @@ stopped resolving or a shape that was renamed is `MISSING` or `MISMATCH`, shown
 both in the summary and as a tag on the affected row.
 
 Findings download as `deck-updater-qc.csv`.
+
+## Frontend materials and motion
+
+The landing page uses an Apple-inspired neutral palette, frosted navigation and
+controls, and opaque workbook/slide content. Reduced transparency, increased
+contrast, reduced motion, and browsers without backdrop filters get simpler
+materials. Navigation selection changes immediately; the illustration updates
+only when requested. The working sample advances when processing actually
+finishes, without an artificial animation delay.
+
+Motion 14.0.0 is vendored from the npm package's `dist/motion.js` as
+`vendor/motion-14.0.0.min.js`, with its MIT license alongside it. It supplies the
+brief, non-bouncing workspace transition. The app still runs as static files
+with no build step or added external script requests.
+
+Design references: [Emil Kowalski's Apple Design skill](https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md),
+[Apple's materials guidance](https://developer.apple.com/design/human-interface-guidelines/materials),
+and [ThreeUI's navigation and layered-paper studies](https://threeui.com).
+ThreeUI informed the composition; its React package is not installed in this
+plain-JavaScript application.
