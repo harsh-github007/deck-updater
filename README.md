@@ -6,6 +6,10 @@ report cycle after that is one command, or one button.
 
 **Live app:** https://deck-updater.vercel.app
 
+![The browser edition landing page](docs/landing-glass.jpg)
+
+[Mobile preview](docs/landing-glass-mobile.jpg) · [Dark preview](docs/landing-glass-dark.jpg)
+
 ![The browser edition after a run](docs/screenshot.png)
 
 Three independent implementations follow the same
